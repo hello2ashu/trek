@@ -8,14 +8,24 @@ services:
       timeout: 5s
       retries: 3
       start_period: 90s
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETUID
+      - SETGID
     ports:
       - 2341:3000
-    environment:
-       NODE_ENV: production
-       JWT_SECRET: dOxZYTTZgXKMHkqLBIQVImayQXAVWdzGBPuFJKggzcgvgPJPXpWzqzKaUOIOGGIr
-       PORT: 3000
-       ALLOWED_ORIGINS: https://trek.ashish-syn-nas.synology.me
     volumes:
       - /volume1/docker/trek/data:/app/data:rw
       - /volume1/docker/trek/uploads:/app/uploads:rw
+    user: 0:0
+    environment:
+       NODE_ENV: production
+       ENCRYPTION_KEY: dOxZYTTZgXKMHkqLBIQVImayQXAVWdzGBPuFJKggzcgvgPJPXpWzqzKaUOIOGGIr
+       TZ: Europe/Bucharest
+       ADMIN_EMAIL: hello2ashu@gmail.com
+       ADMIN_PASSWORD: Ashgoe@2101
+       PORT: 3000
+       COOKIE_SECURE: true
     restart: on-failure:5
