@@ -3,11 +3,11 @@ services:
     image: mauriceboe/trek:latest
     container_name: TREK
     healthcheck:
-      test: ["CMD-SHELL", "/dev/tcp/localhost/3000" || exit 1"]
-      interval: 10s
-      timeout: 5s
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
       retries: 3
-      start_period: 90s
+      start_period: 15s
     cap_drop:
       - ALL
     cap_add:
