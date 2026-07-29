@@ -3,7 +3,7 @@ services:
     image: mauriceboe/trek:latest
     container_name: TREK
     healthcheck:
-      test: ["CMD-SHELL", "</dev/tcp/localhost/3000" || exit 1"]
+      test: ["CMD-SHELL", "/dev/tcp/localhost/3000" || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 3
