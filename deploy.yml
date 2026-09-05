@@ -22,7 +22,7 @@ services:
     user: 0:0
     environment:
        NODE_ENV: production
-       ENCRYPTION_KEY: dOxZYTTZgXKMHkqLBIQVImayQXAVWdzGBPuFJKggzcgvgPJPXpWzqzKaUOIOGGIr
+       ENCRYPTION_KEY: ${trekenc}
        TZ: Europe/Bucharest
        ADMIN_EMAIL: hello2ashu@gmail.com
        ADMIN_PASSWORD: Ashgoe@2101
